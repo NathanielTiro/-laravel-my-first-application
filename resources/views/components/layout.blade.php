@@ -16,18 +16,9 @@
 
     <!-- Nav Links (center upward under heading like dashboard) -->
     <nav class="flex flex-col items-center mt-8 space-y-4">
-      <x-nav-link href="/" :active="request()->is('/')"
-        class="w-40 text-center px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold shadow-lg hover:from-blue-400 hover:to-blue-600 transition">
-         Home
-      </x-nav-link>
-      <x-nav-link href="/about" :active="request()->is('about')"
-        class="w-40 text-center px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold shadow-lg hover:from-blue-400 hover:to-blue-600 transition">
-         About
-      </x-nav-link>
-      <x-nav-link href="/contact" :active="request()->is('contact')"
-        class="w-40 text-center px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold shadow-lg hover:from-blue-400 hover:to-blue-600 transition">
-         Contact
-      </x-nav-link>
+      <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
+<x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
+
     </nav>
 
     <!-- Logout Button pinned at bottom -->
