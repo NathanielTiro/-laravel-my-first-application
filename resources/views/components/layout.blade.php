@@ -14,11 +14,10 @@
       <h1 class="text-2xl font-bold text-blue-400 drop-shadow-lg">{{ $heading ?? 'Dashboard' }}</h1>
     </div>
 
-    <!-- Nav Links (center upward under heading like dashboard) -->
+    <!-- Nav Links -->
     <nav class="flex flex-col items-center mt-8 space-y-4">
       <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
-<x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
-
+      <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
     </nav>
 
     <!-- Logout Button pinned at bottom -->
@@ -29,9 +28,12 @@
     </div>
   </aside>
 
-  <!-- Main Content -->
-  <main class="flex-1 p-8 overflow-y-auto flex items-center justify-center bg-gray-800 text-white">
-    <div class="text-center">
+  <!-- Main Content with Job Listing Background -->
+  <main class="flex-1 p-8 overflow-y-auto flex items-center justify-center 
+               bg-[url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1350&q=80')] 
+               bg-cover bg-center text-white">
+    <!-- Overlay box for readability -->
+    <div class="bg-black/60 p-10 rounded-xl shadow-xl text-center max-w-2xl">
       {{ $slot }}
     </div>
   </main>
