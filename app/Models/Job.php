@@ -9,7 +9,11 @@ class Job extends Model
 {
     use HasFactory;
 
+    // If your table is really 'job_listings', keep this line
     protected $table = 'job_listings';
+
+    // Allow mass assignment for these fields
+    protected $fillable = ['title', 'salary', 'employer_id'];
 
     public function employer()
     {

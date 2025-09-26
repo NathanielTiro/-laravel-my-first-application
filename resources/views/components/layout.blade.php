@@ -18,6 +18,13 @@
     <nav class="flex flex-col items-center mt-8 space-y-4">
       <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
       <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
+
+      <!-- Create Job Button -->
+      <a href="/jobs/create"
+         class="w-40 text-center rounded-lg bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-lg
+                hover:bg-indigo-500 transition">
+        + Create Job
+      </a>
     </nav>
 
     <!-- Logout Button pinned at bottom -->
