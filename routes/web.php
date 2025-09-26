@@ -9,7 +9,8 @@ Route::get('/', function () {
 
 Route::get('/jobs', function () {
     return view('jobs', [
-        'jobs' => Job::with(['employer', 'tags'])->get()
+        // Show 10 jobs per page, with employer & tags eager loaded
+        'jobs' => Job::with(['employer', 'tags'])->paginate(10)
     ]);
 });
 

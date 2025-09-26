@@ -51,5 +51,10 @@
             <p class="text-gray-400 text-center">No jobs available at the moment.</p>
         @endif
 
+        <!-- Pagination links -->
+        <div class="mt-6">
+            {{ $jobs->links() }}
+        </div>
+
     </div>
 </x-layout>
