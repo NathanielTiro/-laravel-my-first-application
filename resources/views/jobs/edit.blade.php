@@ -3,7 +3,17 @@
         Edit Job
     </x-slot:heading>
 
-    <form method="POST" action="/jobs/{{ $job->id }}" class="space-y-6">
+    <!-- ✅ Custom style for placeholder -->
+    <style>
+        input::placeholder {
+            background-color: black;   /* Black background for placeholder */
+            color: white;             /* White placeholder text */
+            padding: 2px 4px;         /* Optional: spacing so background shows */
+        }
+    </style>
+
+    <!-- ✅ Use named route for update -->
+    <form method="POST" action="{{ route('jobs.update', $job) }}" class="space-y-6">
         @csrf
         @method('PATCH')
 
@@ -11,8 +21,9 @@
         <div>
             <label for="title" class="block text-sm font-medium text-black">Job Title</label>
             <input type="text" name="title" id="title"
+                placeholder="Enter job title"
                 value="{{ old('title', $job->title) }}"
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                class="mt-1 block w-full rounded-md border-black shadow-sm text-white bg-black">
             @error('title')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
@@ -22,8 +33,9 @@
         <div>
             <label for="salary" class="block text-sm font-medium text-black">Salary</label>
             <input type="text" name="salary" id="salary"
+                placeholder="Enter salary"
                 value="{{ old('salary', $job->salary) }}"
-                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                class="mt-1 block w-full rounded-md border-black shadow-sm text-white bg-black">
             @error('salary')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
@@ -44,8 +56,8 @@
         </div>
     </form>
 
-    <!-- Hidden Delete Form -->
-    <form method="POST" action="/jobs/{{ $job->id }}" id="delete-form" class="hidden">
+    <!-- ✅ Use named route for destroy -->
+    <form method="POST" action="{{ route('jobs.destroy', $job) }}" id="delete-form" class="hidden">
         @csrf
         @method('DELETE')
     </form>
